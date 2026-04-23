@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSEM Capstone — Sindhu Yamsani</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue: #002D72;
+  --sky: #68ACE5;
+  --soft: #EEF4FC;
+  --text: #111827;
+  --muted: #6B7280;
+  --border: #DDE6F4;
+  --gold: #C9A84C;
+  --white: #fff;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #F5F8FD;
+  color: var(--text);
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--blue);
+  padding: 52px 64px 44px;
+}
+.tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 14px;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.2;
+  max-width: 560px;
+  margin-bottom: 24px;
+}
+.meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.meta span { font-size: 13px; color: rgba(255,255,255,0.5); }
+.meta strong { color: var(--white); }
+
+/* ── LAYOUT ── */
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 52px 32px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ── SECTION HEADER ── */
+.sh {
+  margin-bottom: 20px;
+}
+.sh .eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 6px;
+}
+.sh h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+/* ── PHASE STRIP ── */
+.phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.phase {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 28px 24px 24px;
+  border-top: 4px solid var(--blue);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--blue);
+}
+.phase:nth-child(2) { border-top-color: var(--sky); }
+.phase:nth-child(3) { border-top-color: var(--gold); }
+.phase-n {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.phase h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+.phase p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── TACTICS ── */
+.tactics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.tactic {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 20px 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.tactic.star {
+  grid-column: span 2;
+  border-color: var(--sky);
+  background: linear-gradient(120deg, #EBF4FD 0%, #fff 80%);
+}
+.icon {
+  font-size: 20px;
+  width: 42px;
+  height: 42px;
+  background: var(--soft);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.tactic.star .icon {
+  background: var(--blue);
+}
+.tactic h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+.tactic p {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.pill {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 6px;
+}
+
+/* ── VETTING TABLE ── */
+.table-wrap {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.t-head {
+  display: grid;
+  grid-template-columns: 2fr 90px 3fr;
+  gap: 16px;
+  padding: 14px 24px;
+  background: var(--blue);
+}
+.t-head span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.t-row {
+  display: grid;
+  grid-template-columns: 2fr 90px 3fr;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.t-row:last-child { border-bottom: none; }
+.t-row:hover { background: var(--soft); }
+.t-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+.badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-align: center;
+}
+.badge.must { background: #FEE2E2; color: #991B1B; }
+.badge.imp  { background: #FEF3C7; color: #92400E; }
+.badge.nice { background: #D1FAE5; color: #065F46; }
+.t-note {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.week {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.week-hd {
+  background: var(--blue);
+  padding: 16px 20px;
+}
+.week-hd h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.week-hd span {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+}
+.week-bd {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wi {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.wi::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--sky);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.wi span {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── PITCH ── */
+.pitch {
+  background: var(--blue);
+  border-radius: 18px;
+  padding: 44px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.pitch::before {
+  content: '"';
+  position: absolute;
+  top: -30px; left: 36px;
+  font-family: 'Playfair Display', serif;
+  font-size: 220px;
+  color: rgba(104,172,229,0.1);
+  line-height: 1;
+  pointer-events: none;
+}
+.pitch .eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 18px;
+}
+.pitch-q {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  color: var(--white);
+  line-height: 1.7;
+  max-width: 700px;
+  position: relative;
+}
+.pitch-sub {
+  margin-top: 18px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 28px;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ── TABS ── */
+.tab-ui { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.tab-bar {
+  display: flex; overflow-x: auto; border-bottom: 1px solid var(--border);
+  background: var(--soft); padding: 10px 10px 0; gap: 2px;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+.tab-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 11px 18px; font-size: 13px; font-weight: 500;
+  color: var(--muted); background: none; border: none;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 3px solid transparent; cursor: pointer;
+  white-space: nowrap; font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+.tab-btn:hover { color: var(--blue); background: rgba(0,45,114,0.04); }
+.tab-btn.active { color: var(--blue); font-weight: 600; border-bottom-color: var(--blue); background: var(--white); }
+.tab-num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--border); color: var(--muted);
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.tab-btn.active .tab-num { background: var(--blue); color: var(--white); }
+.tab-panels { padding: 0; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 24px 28px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.panel-title-group h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; color: var(--blue); margin-bottom: 4px; }
+.panel-title-group span { font-size: 12.5px; color: var(--muted); }
+.panel-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.panel-body { display: grid; grid-template-columns: 1fr 1.6fr; }
+.panel-col { padding: 28px; }
+.panel-col:first-child { border-right: 1px solid var(--border); }
+.col-label { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--sky); margin-bottom: 16px; }
+.fit-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.fit-list li { font-size: 13px; color: var(--muted); line-height: 1.6; padding-left: 16px; position: relative; }
+.fit-list li::before { content: '→'; position: absolute; left: 0; color: var(--sky); }
+.dm-box { background: #F4F7FC; border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; }
+.dm-box p { font-size: 13px; color: var(--text); line-height: 1.8; font-style: italic; }
+
+@media (max-width: 680px) {
+  header { padding: 32px 20px; }
+  header h1 { font-size: 26px; }
+  main { padding: 32px 16px 60px; }
+  .phases, .tactics, .timeline { grid-template-columns: 1fr; }
+  .tactic.star { grid-column: span 1; }
+  .t-head, .t-row { grid-template-columns: 1fr; }
+  .panel-body { grid-template-columns: 1fr; }
+  .panel-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">MSEM Capstone Internship · Summer 2026</div>
+  <h1>My Approach to Outreach & Partner Acquisition</h1>
+  <div class="meta">
+    <span><strong>Sindhu Yamsani</strong></span>
+    <span>Johns Hopkins MSEM '26</span>
+    <span>syamsan1@jh.edu</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- PHASES -->
+  <section>
+    <div class="sh">
+      <div class="eyebrow">The Framework</div>
+      <h2>Three phases — one goal</h2>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-n">Phase 01</div>
+        <h3>Acquire</h3>
+        <p>Find companies who are the right fit — not just willing, but set up for a 7–8 week engagement to succeed.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-n">Phase 02</div>
+        <h3>Form</h3>
+        <p>Scope the problem in a way that works for both the host and the student team.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-n">Phase 03</div>
+        <h3>Coordinate</h3>
+        <p>Set clear expectations early and keep communication running smoothly once it starts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TACTICS -->
+  <section>
+    <div class="sh">
+      <div class="eyebrow">Outreach Strategy</div>
+      <h2>What I'd do — and what I'd do differently</h2>
+    </div>
+    <div class="tactics">
+
+      <div class="tactic star">
+        <div class="icon">📄</div>
+        <div>
+          <div class="pill">Key Idea</div>
+          <h4>Build a case study from a past capstone</h4>
+          <p>A one-pager showing a real past project — what the problem was, what the team delivered, what the company did with it. Makes the pitch concrete. Easy to forward internally to get buy-in.</p>
+        </div>
+      </div>
+
+      <div class="tactic">
+        <div class="icon">🔁</div>
+        <div>
+          <h4>Start with warm outreach</h4>
+          <p>Past hosts already understand the program. They say yes faster.</p>
+        </div>
+      </div>
+
+      <div class="tactic">
+        <div class="icon">🔗</div>
+        <div>
+          <h4>Mine the Hopkins network</h4>
+          <p>Alumni, faculty connections, JHU career office — warm intros convert better than cold emails.</p>
+        </div>
+      </div>
+
+      <div class="tactic">
+        <div class="icon">⚡</div>
+        <div>
+          <h4>Lower the entry barrier</h4>
+          <p>Offer a 15-min no-commitment call. Add a simple FAQ so companies know exactly what they're signing up for before getting on a call.</p>
+        </div>
+      </div>
+
+      <div class="tactic">
+        <div class="icon">💼</div>
+        <div>
+          <h4>LinkedIn + alumni outreach</h4>
+          <p>Post about the program and reach out directly to alumni at companies that would be good hosts.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VETTING -->
+  <section>
+    <div class="sh">
+      <div class="eyebrow">Partner Vetting</div>
+      <h2>How I'd decide if a company is a good fit</h2>
+    </div>
+    <div class="table-wrap">
+      <div class="t-head">
+        <span>Criteria</span>
+        <span>Priority</span>
+        <span>What I look for</span>
+      </div>
+      <div class="t-row">
+        <div class="t-name">Host availability</div>
+        <div class="badge must">Must-have</div>
+        <div class="t-note">Can they show up weekly for 7–8 weeks? If not, the project fails.</div>
+      </div>
+      <div class="t-row">
+        <div class="t-name">Problem scope</div>
+        <div class="badge must">Must-have</div>
+        <div class="t-note">Right-sized — not too broad, not too narrow. Shapeable in a scoping conversation.</div>
+      </div>
+      <div class="t-row">
+        <div class="t-name">Technicality fit</div>
+        <div class="badge must">Must-have</div>
+        <div class="t-note">Host understands this is strategy/process — not an engineering project.</div>
+      </div>
+      <div class="t-row">
+        <div class="t-name">Decision-making access</div>
+        <div class="badge imp">Important</div>
+        <div class="t-note">Is our contact senior enough to actually act on recommendations?</div>
+      </div>
+      <div class="t-row">
+        <div class="t-name">Student learning potential</div>
+        <div class="badge imp">Important</div>
+        <div class="t-note">Will students walk away with a story worth telling in their next interview?</div>
+      </div>
+      <div class="t-row">
+        <div class="t-name">Hopkins connection</div>
+        <div class="badge nice">Nice to have</div>
+        <div class="t-note">Alumni, faculty link, or past collaboration — makes coordination easier.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <div class="sh">
+      <div class="eyebrow">Execution Plan</div>
+      <h2>First 30 days on the job</h2>
+    </div>
+    <div class="timeline">
+      <div class="week">
+        <div class="week-hd">
+          <h4>Week 1–2</h4>
+          <span>Learn before you pitch</span>
+        </div>
+        <div class="week-bd">
+          <div class="wi"><span>Review past projects & host feedback</span></div>
+          <div class="wi"><span>Meet with Trevor — understand what worked</span></div>
+          <div class="wi"><span>Build past-host database</span></div>
+          <div class="wi"><span>Draft the one-page case study</span></div>
+        </div>
+      </div>
+      <div class="week">
+        <div class="week-hd">
+          <h4>Week 3–4</h4>
+          <span>Start the outreach engine</span>
+        </div>
+        <div class="week-bd">
+          <div class="wi"><span>Warm outreach to past hosts</span></div>
+          <div class="wi"><span>LinkedIn + alumni network outreach</span></div>
+          <div class="wi"><span>First info session scheduled</span></div>
+          <div class="wi"><span>FAQ doc and intro call process set up</span></div>
+        </div>
+      </div>
+      <div class="week">
+        <div class="week-hd">
+          <h4>Week 5+</h4>
+          <span>Vet and form projects</span>
+        </div>
+        <div class="week-bd">
+          <div class="wi"><span>Scoping interviews with interested hosts</span></div>
+          <div class="wi"><span>Pressure-test problem statements</span></div>
+          <div class="wi"><span>Confirm project list with faculty</span></div>
+          <div class="wi"><span>Set up initial team-host meetings</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- TARGET COMPANIES — TABBED -->
+  <section>
+    <div class="sh">
+      <div class="eyebrow">Target Outreach</div>
+      <h2>Companies I'd reach out to — and how</h2>
+    </div>
+    <p style="font-size:13px;color:#6B7280;margin-bottom:28px;line-height:1.6;">Six companies chosen for Baltimore presence, Hopkins alumni network, and strategy/ops problems that fit a 7–8 week scope.</p>
+
+    <div class="tab-ui">
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-num">1</span>Under Armour</button>
+        <button class="tab-btn" onclick="switchTab(1)"><span class="tab-num">2</span>T. Rowe Price</button>
+        <button class="tab-btn" onclick="switchTab(2)"><span class="tab-num">3</span>CareFirst</button>
+        <button class="tab-btn" onclick="switchTab(3)"><span class="tab-num">4</span>McCormick</button>
+        <button class="tab-btn" onclick="switchTab(4)"><span class="tab-num">5</span>Leidos</button>
+        <button class="tab-btn" onclick="switchTab(5)"><span class="tab-num">6</span>Constellation</button>
+      </div>
+      <div class="tab-panels">
+
+        <div class="tab-panel active">
+          <div class="panel-header">
+            <div class="panel-title-group"><h3>Under Armour</h3><span>Baltimore, MD · Consumer Goods</span></div>
+            <div class="panel-chips"><div class="chip blue">Baltimore HQ</div><div class="chip">Strong Hopkins alumni</div></div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-col">
+              <div class="col-label">Why a good fit</div>
+              <ul class="fit-list">
+                <li>Already JHU's official athletic outfitter since 2017 — the relationship exists</li>
+                <li>CEO returned in 2024 and cut 25% of products — real strategy reset happening now</li>
+                <li>Lists JHU internships on their site — recruiting pipeline is warm, not cold</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <div class="col-label">LinkedIn DM</div>
+              <div class="dm-box"><p>Hi [Name], I'm an MSEM student at Johns Hopkins reaching out about our Capstone program — we place grad teams with companies for 7–8 week strategy engagements, at no cost. Past projects have covered market entry, ops workflow, and process redesign. Given Under Armour's Baltimore presence and the Hopkins connection, I thought it could be a great fit. Open to a 15-minute call? Happy to send a one-pager first.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel">
+          <div class="panel-header">
+            <div class="panel-title-group"><h3>T. Rowe Price</h3><span>Baltimore, MD · Financial Services</span></div>
+            <div class="panel-chips"><div class="chip blue">Baltimore HQ</div><div class="chip">Process-heavy</div></div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-col">
+              <div class="col-label">Why a good fit</div>
+              <ul class="fit-list">
+                <li>Already partnered with UMBC, Towson, and Morgan State — they know how to work with universities</li>
+                <li>Built a Finance Lab at Towson for 3,000+ students — they invest in structured academic programs</li>
+                <li>200+ UMBC alumni on staff — warm intro potential through Baltimore connections</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <div class="col-label">LinkedIn DM</div>
+              <div class="dm-box"><p>Hi [Name], I'm reaching out from Johns Hopkins' MSEM program. We run a Capstone where grad teams spend 7–8 weeks on a real strategic or operational challenge. Past projects have included workflow redesign and process benchmarking. No cost — we just need access to the right people and a weekly touchpoint. Given T. Rowe's Baltimore footprint, I'd love to explore if there's a fit. Open to a quick 15-minute call?</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel">
+          <div class="panel-header">
+            <div class="panel-title-group"><h3>CareFirst BlueCross BlueShield</h3><span>Baltimore, MD · Healthcare & Insurance</span></div>
+            <div class="panel-chips"><div class="chip blue">Baltimore HQ</div><div class="chip">Healthcare strategy</div></div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-col">
+              <div class="col-label">Why a good fit</div>
+              <ul class="fit-list">
+                <li>Covers 3.5M+ members in Maryland — deeply invested in Baltimore institutions</li>
+                <li>Member experience and claims ops are active problem areas — right-sized for 8 weeks</li>
+                <li>JHU Medicine and CareFirst share overlapping stakeholders — warm intro through faculty</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <div class="col-label">LinkedIn DM</div>
+              <div class="dm-box"><p>Hi [Name], I'm a grad student in Johns Hopkins' Engineering Management program. We have a Capstone where student teams tackle a real strategic challenge for a company over 7–8 weeks — structured like a consulting engagement, at no cost. Healthcare orgs have been some of our strongest projects. Given CareFirst's presence in Baltimore, I'd love a quick conversation. Would a 15-minute call work?</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel">
+          <div class="panel-header">
+            <div class="panel-title-group"><h3>McCormick & Company</h3><span>Hunt Valley, MD · Consumer Goods</span></div>
+            <div class="panel-chips"><div class="chip blue">Maryland HQ</div><div class="chip">Supply chain & strategy</div></div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-col">
+              <div class="col-label">Why a good fit</div>
+              <ul class="fit-list">
+                <li>HQ in Hunt Valley since 1889 — Maryland company, local and accessible</li>
+                <li>Publicly committed to community partnerships — track record of saying yes</li>
+                <li>Flavor trends, distribution strategy — real problems, no technical depth needed</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <div class="col-label">LinkedIn DM</div>
+              <div class="dm-box"><p>Hi [Name], reaching out from Johns Hopkins' MSEM program. We place graduate teams with companies for focused 7–8 week strategy projects — past work has covered market expansion, ops workflow, and go-to-market planning. McCormick's Maryland roots made you an obvious name on our list. Would love to explore if there's a fit — would a 15-min call work?</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel">
+          <div class="panel-header">
+            <div class="panel-title-group"><h3>Leidos</h3><span>Baltimore area · Defense & Tech</span></div>
+            <div class="panel-chips"><div class="chip blue">Hopkins alumni network</div><div class="chip">Process & strategy</div></div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-col">
+              <div class="col-label">Why a good fit</div>
+              <ul class="fit-list">
+                <li>Long recruiting relationship with JHU engineering — warm intro through faculty</li>
+                <li>Has a commercial health IT division — no clearance needed, strategy problems available</li>
+                <li>Growing through acquisitions — integration challenges are real and 8-week-friendly</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <div class="col-label">LinkedIn DM</div>
+              <div class="dm-box"><p>Hi [Name], I'm reaching out from Johns Hopkins' Engineering Management program. We run a Capstone where grad teams spend 7–8 weeks on a real company challenge — strategy, operations, or process. Leidos has a strong Hopkins alumni community and I thought there might be a natural fit. No cost involved — we just need a good problem and an engaged point of contact. Would you have 15 minutes to explore?</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel">
+          <div class="panel-header">
+            <div class="panel-title-group"><h3>Constellation Energy</h3><span>Baltimore, MD · Energy & Sustainability</span></div>
+            <div class="panel-chips"><div class="chip blue">Baltimore HQ</div><div class="chip">High-growth sector</div></div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-col">
+              <div class="col-label">Why a good fit</div>
+              <ul class="fit-list">
+                <li>Spun off from Exelon in 2022 — still building out strategy as an independent company</li>
+                <li>Baltimore HQ, JHU's energy research community nearby — easy warm intro</li>
+                <li>Clean energy market strategy — high stakes, no deep technical knowledge required</li>
+              </ul>
+            </div>
+            <div class="panel-col">
+              <div class="col-label">LinkedIn DM</div>
+              <div class="dm-box"><p>Hi [Name], I'm a grad student at Johns Hopkins reaching out about our MSEM Capstone — we connect companies with graduate teams for 7–8 week strategy engagements, no cost, structured like a real consulting project. Given Constellation's growth and Baltimore presence, I thought there could be a great fit. Open to a quick 15-minute call? Happy to send a one-pager first.</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+function switchTab(index) {
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === index));
+  document.querySelectorAll('.tab-panel').forEach((panel, i) => panel.classList.toggle('active', i === index));
+}
+</script>
+
+<footer>
+  Sindhu Yamsani · MSEM '26 · Johns Hopkins University · syamsan1@jh.edu
+</footer>
+
+</body>
+</html>
